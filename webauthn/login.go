@@ -121,20 +121,20 @@ func (webauthn *WebAuthn) FinishLogin(user User, session SessionData, response *
 		return nil, err
 	}
 
-	return webauthn.ValidateLogin(user, session, parsedResponse)
+	return webauthn.ValidateLogin(user, session, parsedResponse, 0)
 }
 
 // ValidateLogin takes a parsed response and validates it against the user credentials and session data
-func (webauthn *WebAuthn) ValidateLogin(user User, session SessionData, parsedResponse *protocol.ParsedCredentialAssertionData) (*Credential, error) {
+func (webauthn *WebAuthn) ValidateLogin(user User, session SessionData, parsedResponse *protocol.ParsedCredentialAssertionData, challengeOffset uint) (*Credential, error) {
 	if !bytes.Equal(user.WebAuthnID(), session.UserID) {
 		return nil, protocol.ErrBadRequest.WithDetails("ID mismatch for User and Session")
 	}
 
-	return webauthn.validateLogin(user, session, parsedResponse)
+	return webauthn.validateLogin(user, session, parsedResponse, challengeOffset)
 }
 
 // ValidateDiscoverableLogin is an overloaded version of ValidateLogin that allows for discoverable credentials.
-func (webauthn *WebAuthn) ValidateDiscoverableLogin(handler DiscoverableUserHandler, session SessionData, parsedResponse *protocol.ParsedCredentialAssertionData) (*Credential, error) {
+func (webauthn *WebAuthn) ValidateDiscoverableLogin(handler DiscoverableUserHandler, session SessionData, parsedResponse *protocol.ParsedCredentialAssertionData, challengeOffset uint) (*Credential, error) {
 	if session.UserID != nil {
 		return nil, protocol.ErrBadRequest.WithDetails("Session was not initiated as a client-side discoverable login")
 	}
@@ -148,11 +148,11 @@ func (webauthn *WebAuthn) ValidateDiscoverableLogin(handler DiscoverableUserHand
 		return nil, protocol.ErrBadRequest.WithDetails("Failed to lookup Client-side Discoverable Credential")
 	}
 
-	return webauthn.validateLogin(user, session, parsedResponse)
+	return webauthn.validateLogin(user, session, parsedResponse, challengeOffset)
 }
 
 // ValidateLogin takes a parsed response and validates it against the user credentials and session data
-func (webauthn *WebAuthn) validateLogin(user User, session SessionData, parsedResponse *protocol.ParsedCredentialAssertionData) (*Credential, error) {
+func (webauthn *WebAuthn) validateLogin(user User, session SessionData, parsedResponse *protocol.ParsedCredentialAssertionData, challengeOffset uint) (*Credential, error) {
 	// Step 1. If the allowCredentials option was given when this authentication ceremony was initiated,
 	// verify that credential.id identifies one of the public key credentials that were listed in
 	// allowCredentials.
@@ -224,7 +224,7 @@ func (webauthn *WebAuthn) validateLogin(user User, session SessionData, parsedRe
 	}
 
 	// Handle steps 4 through 16
-	validError := parsedResponse.Verify(session.Challenge, rpID, rpOrigin, appID, shouldVerifyUser, loginCredential.PublicKey)
+	validError := parsedResponse.Verify(session.Challenge[challengeOffset:], rpID, rpOrigin, appID, shouldVerifyUser, loginCredential.PublicKey)
 	if validError != nil {
 		return nil, validError
 	}
