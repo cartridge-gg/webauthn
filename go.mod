@@ -1,4 +1,4 @@
-module github.com/go-webauthn/webauthn
+module github.com/cartridge-gg/webauthn
 
 go 1.17
 
