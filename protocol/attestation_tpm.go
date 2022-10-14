@@ -10,8 +10,8 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/go-webauthn/webauthn/protocol/googletpm"
-	"github.com/go-webauthn/webauthn/protocol/webauthncose"
+	"github.com/cartridge-gg/webauthn/protocol/googletpm"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncose"
 )
 
 var tpmAttestationKey = "tpm"

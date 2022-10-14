@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/go-webauthn/webauthn/protocol/webauthncose"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncose"
 )
 
 var appleAttestationKey = "apple"

@@ -8,4 +8,4 @@ rules:
   type-enum: [2, always ["build", "ci", "docs", "feat", "fix", "perf", "refactor", "revert", "test"]]
   scope-enum: [2, always, ["metadata", "protocol", "webauthn"]]
 defaultIgnores: true
-helpUrl: 'https://github.com/go-webauthn/webauthn/blob/master/CONTRIBUTING.md#commit-message-convention'
+helpUrl: 'https://github.com/cartridge-gg/webauthn/blob/master/CONTRIBUTING.md#commit-message-convention'

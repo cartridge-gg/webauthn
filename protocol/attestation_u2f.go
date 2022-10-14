@@ -7,8 +7,8 @@ import (
 	"crypto/x509"
 	"fmt"
 
-	"github.com/go-webauthn/webauthn/protocol/webauthncbor"
-	"github.com/go-webauthn/webauthn/protocol/webauthncose"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncbor"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncose"
 )
 
 var u2fAttestationKey = CredentialTypeFIDOU2F

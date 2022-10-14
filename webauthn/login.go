@@ -5,7 +5,7 @@ import (
 	"encoding/base64"
 	"net/http"
 
-	"github.com/go-webauthn/webauthn/protocol"
+	"github.com/cartridge-gg/webauthn/protocol"
 )
 
 // BEGIN REGISTRATION

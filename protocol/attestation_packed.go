@@ -10,8 +10,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/go-webauthn/webauthn/metadata"
-	"github.com/go-webauthn/webauthn/protocol/webauthncose"
+	"github.com/cartridge-gg/webauthn/metadata"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncose"
 )
 
 var packedAttestationKey = "packed"

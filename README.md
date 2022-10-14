@@ -1,7 +1,7 @@
 # WebAuthn Library
 
-[![GoDoc](https://godoc.org/github.com/go-webauthn/webauthn?status.svg)](https://godoc.org/github.com/go-webauthn/webauthn)
-[![Go Report Card](https://goreportcard.com/badge/github.com/go-webauthn/webauthn)](https://goreportcard.com/report/github.com/go-webauthn/webauthn)
+[![GoDoc](https://godoc.org/github.com/cartridge-gg/webauthn?status.svg)](https://godoc.org/github.com/cartridge-gg/webauthn)
+[![Go Report Card](https://goreportcard.com/badge/github.com/cartridge-gg/webauthn)](https://goreportcard.com/report/github.com/cartridge-gg/webauthn)
 
 
 This library is meant to handle [Web Authentication](https://w3c.github.io/webauthn) for Go apps that wish to implement 
@@ -23,26 +23,26 @@ There are several differences between the upstream library and this one. We will
 
 * There are minimal breaking changes between this library and the upstream one. Identified breaking changes exist in the 
   following commits:
-  * ~~Change of protocol.ResidentKeyUnrequired() to protocol.ResidentKeyNotRequired() [5ad54f8](https://github.com/go-webauthn/webauthn/commit/5ad54f89952eb238a7d6e10ed2d443738351d67f).~~
+  * ~~Change of protocol.ResidentKeyUnrequired() to protocol.ResidentKeyNotRequired() [5ad54f8](https://github.com/cartridge-gg/webauthn/commit/5ad54f89952eb238a7d6e10ed2d443738351d67f).~~
     This method has been restored as a deprecated function making the migration path clearer.
 * This library is versioned with branches per minor version for back-porting fixes.
 * This library releases tagged versions.
-* This library has a smaller dependency tree because of [c561447](https://github.com/go-webauthn/webauthn/commit/c561447e218d73421476565a3d66ab6dc934966c).
+* This library has a smaller dependency tree because of [c561447](https://github.com/cartridge-gg/webauthn/commit/c561447e218d73421476565a3d66ab6dc934966c).
 * The following upstream issues have been resolved:
   * Issue 76 was fixed related to the google.golang.org/grpc/naming dependency was fixed by merging 
-    [c561447](https://github.com/go-webauthn/webauthn/commit/c561447e218d73421476565a3d66ab6dc934966c) 
+    [c561447](https://github.com/cartridge-gg/webauthn/commit/c561447e218d73421476565a3d66ab6dc934966c) 
     which migrates from the github.com/cloudflare/cfssl module to a fork of the features used by this module implemented
     in [1edcf14](https://github.com/go-webauthn/revoke/commit/1edcf14a748f88f41663433f336e07604f5e72c1).
 * The following PR's in the upstream repository are merged in one form or another:
-  * PR132 was merged in [401a3f6](https://github.com/go-webauthn/webauthn/commit/401a3f63b5fb3c91faa52c56a9295b78d62e039f).
-  * PR131 was merged in [509e08f](https://github.com/go-webauthn/webauthn/commit/509e08fb364c78be30067a93d976730a8fe4a656) (cherry-pick squashed).
-  * PR130 was merged in [729227d](https://github.com/go-webauthn/webauthn/commit/729227d1ec0504ebb518f38e72bcd10ae68c4130) (v0.2.x) and [93a942a](https://github.com/go-webauthn/webauthn/commit/93a942a90dbb82d997e1ed2945ba41b37d47890f) (v0.1.x).
-  * PR122 was merged in [2bbb113](https://github.com/go-webauthn/webauthn/commit/2bbb113b333b775d2d7c5551b7220f713f666f00).
-  * PR116 was (effectively) merged in [d64d2ba](https://github.com/go-webauthn/webauthn/commit/d64d2ba780240964310c7f5862add333bc659348).
+  * PR132 was merged in [401a3f6](https://github.com/cartridge-gg/webauthn/commit/401a3f63b5fb3c91faa52c56a9295b78d62e039f).
+  * PR131 was merged in [509e08f](https://github.com/cartridge-gg/webauthn/commit/509e08fb364c78be30067a93d976730a8fe4a656) (cherry-pick squashed).
+  * PR130 was merged in [729227d](https://github.com/cartridge-gg/webauthn/commit/729227d1ec0504ebb518f38e72bcd10ae68c4130) (v0.2.x) and [93a942a](https://github.com/cartridge-gg/webauthn/commit/93a942a90dbb82d997e1ed2945ba41b37d47890f) (v0.1.x).
+  * PR122 was merged in [2bbb113](https://github.com/cartridge-gg/webauthn/commit/2bbb113b333b775d2d7c5551b7220f713f666f00).
+  * PR116 was (effectively) merged in [d64d2ba](https://github.com/cartridge-gg/webauthn/commit/d64d2ba780240964310c7f5862add333bc659348).
 * The following misc fixes have been merged:
-  * Ensuring the credential ID length is not too long in [b3b93ac](https://github.com/go-webauthn/webauthn/commit/b3b93ac3770a26a92adbcd4b527bbb391127931b) (v0.2.x) and [35287ea](https://github.com/go-webauthn/webauthn/commit/35287ea54b50b1f553f3cc0f0f5527039f375e2c) (v0.1.x).
-  * Ensuring errors are effectively checked, ineffectual checks are not done, and general linting fixes in [90be0fe](https://github.com/go-webauthn/webauthn/commit/90be0fe276222bd574cf19856081979789ce9fca).
-  * A potential nil pointer error in ParseFIDOPublicKey in [3551cfa](https://github.com/go-webauthn/webauthn/commit/3551cfae24f258cd9c978a73711fb9551f82d1e4).
+  * Ensuring the credential ID length is not too long in [b3b93ac](https://github.com/cartridge-gg/webauthn/commit/b3b93ac3770a26a92adbcd4b527bbb391127931b) (v0.2.x) and [35287ea](https://github.com/cartridge-gg/webauthn/commit/35287ea54b50b1f553f3cc0f0f5527039f375e2c) (v0.1.x).
+  * Ensuring errors are effectively checked, ineffectual checks are not done, and general linting fixes in [90be0fe](https://github.com/cartridge-gg/webauthn/commit/90be0fe276222bd574cf19856081979789ce9fca).
+  * A potential nil pointer error in ParseFIDOPublicKey in [3551cfa](https://github.com/cartridge-gg/webauthn/commit/3551cfae24f258cd9c978a73711fb9551f82d1e4).
 
 ## Status
 
@@ -51,7 +51,7 @@ avoid such changes they may be unavoidable.
 
 ## Quickstart
 
-`go get github.com/go-webauthn/webauthn` and initialize it in your application with basic configuration values. 
+`go get github.com/cartridge-gg/webauthn` and initialize it in your application with basic configuration values. 
 
 Make sure your `user` model is able to handle the interface functions laid out in `webauthn/user.go`. This means also 
 supporting the storage and retrieval of the credential and authenticator structs in `webauthn/credential.go` and 
@@ -61,7 +61,7 @@ supporting the storage and retrieval of the credential and authenticator structs
 
 ```golang
 import (
-	"github.com/go-webauthn/webauthn/webauthn"
+	"github.com/cartridge-gg/webauthn/webauthn"
 )
 
 var (
@@ -146,8 +146,8 @@ You can modify the registration options in the following ways:
 ```golang
 // Wherever you handle your WebAuthn requests
 import (
-	"github.com/go-webauthn/webauthn/protocol"
-	"github.com/go-webauthn/webauthn/webauthn"
+	"github.com/cartridge-gg/webauthn/protocol"
+	"github.com/cartridge-gg/webauthn/webauthn"
 )
 
 var webAuthnHandler webauthn.WebAuthn // init this in your init function
@@ -179,8 +179,8 @@ You can modify the login options to allow only certain credentials:
 ```golang
 // Wherever you handle your WebAuthn requests
 import (
-	"github.com/go-webauthn/webauthn/protocol"
-	"github.com/go-webauthn/webauthn/webauthn"
+	"github.com/cartridge-gg/webauthn/protocol"
+	"github.com/cartridge-gg/webauthn/webauthn"
 )
 
 var webAuthnHandler webauthn.WebAuthn // init this in your init function

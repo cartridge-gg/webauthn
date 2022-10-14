@@ -8,7 +8,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/go-webauthn/webauthn/protocol/webauthncose"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncose"
 )
 
 // The raw response returned to us from an authenticator when we request a

@@ -11,7 +11,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/mitchellh/mapstructure"
 
-	"github.com/go-webauthn/webauthn/metadata"
+	"github.com/cartridge-gg/webauthn/metadata"
 )
 
 var safetyNetAttestationKey = "android-safetynet"

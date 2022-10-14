@@ -24,4 +24,4 @@ Users who report bugs will at the discretion of the user be credited for the dis
 6. The fix is released.
 7. The [security advisory] is published sometime after users have had a chance to update.
 
-[security advisory]: https://github.com/go-webauthn/webauthn/security/advisories
+[security advisory]: https://github.com/cartridge-gg/webauthn/security/advisories

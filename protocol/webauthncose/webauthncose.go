@@ -14,7 +14,7 @@ import (
 
 	"golang.org/x/crypto/ed25519"
 
-	"github.com/go-webauthn/webauthn/protocol/webauthncbor"
+	"github.com/cartridge-gg/webauthn/protocol/webauthncbor"
 )
 
 // PublicKeyData The public key portion of a Relying Party-specific credential key pair, generated
