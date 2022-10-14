@@ -59,7 +59,7 @@ func FullyQualifiedOrigin(u *url.URL) string {
 // new credential and steps 7 through 10 of verifying an authentication assertion
 // See https://www.w3.org/TR/webauthn/#registering-a-new-credential
 // and https://www.w3.org/TR/webauthn/#verifying-assertion
-func (c *CollectedClientData) Verify(storedChallenge string, ceremony CeremonyType, relyingPartyOrigin string) error {
+func (c *CollectedClientData) Verify(storedChallenge string, ceremony CeremonyType, relyingPartyOrigin string, challengeOffset uint) error {
 
 	// Registration Step 3. Verify that the value of C.type is webauthn.create.
 
@@ -76,7 +76,7 @@ func (c *CollectedClientData) Verify(storedChallenge string, ceremony CeremonyTy
 	// passed to the get() call.
 
 	challenge := c.Challenge
-	if subtle.ConstantTimeCompare([]byte(storedChallenge), []byte(challenge)) != 1 {
+	if subtle.ConstantTimeCompare([]byte(storedChallenge)[challengeOffset:], []byte(challenge)[challengeOffset:]) != 1 {
 		err := ErrVerification.WithDetails("Error validating challenge")
 		return err.WithInfo(fmt.Sprintf("Expected b Value: %#v\nReceived b: %#v\n", storedChallenge, challenge))
 	}
